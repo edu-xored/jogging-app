@@ -1,8 +1,4 @@
-import { Component } from '@angular/core';
-
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +6,11 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Jogging App';
 
-  constructor(private angularFilestore: AngularFirestore) { }
+  constructor() { }
+
+  ngOnInit(): void { }
+
 }

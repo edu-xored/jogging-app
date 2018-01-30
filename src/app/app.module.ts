@@ -1,35 +1,34 @@
 /** Common modules */
+import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routes';
-import { firebaseConfig } from '../environments/firebase.config';
 
 /** Firebase modules */
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-/** Material design modules */
-import { MatButtonModule } from '@angular/material/button';
+/** Services */
+import { DbService } from './db/db.service';
 
 /** Components */
-import { HeaderComponent } from './header/header.component';
+
+/** Routing */
+import { AppRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AppRoutes,
     BrowserAnimationsModule,
-    MatButtonModule
   ],
-  providers: [],
+  providers: [DbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,22 +9,20 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-/** Services
-
-/** Components */
-
-/** Routing */
-import { AppRoutes } from './app.routes';
+ /** Components */
+import { routes } from './app.routes';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AppRoutes,
+    routes,
     BrowserAnimationsModule,
   ],
   providers: [],

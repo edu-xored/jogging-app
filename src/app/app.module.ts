@@ -10,7 +10,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 /** Services
-import { DbService } from './db/db.service'; */
 
 /** Components */
 
@@ -28,7 +27,7 @@ import { AppRoutes } from './app.routes';
     AppRoutes,
     BrowserAnimationsModule,
   ],
-  providers: [/**DbService*/],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

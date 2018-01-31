@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-/** Services */
-import { DbService } from './db/db.service';
+/** Services
+import { DbService } from './db/db.service'; */
 
 /** Components */
 
@@ -28,7 +28,7 @@ import { AppRoutes } from './app.routes';
     AppRoutes,
     BrowserAnimationsModule,
   ],
-  providers: [DbService],
+  providers: [/**DbService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-/** Services
+/** Services */
+import { UserService } from './services/user/user.service';
+import { RecordService } from './services/record/record.service';
 
 /** Components */
 

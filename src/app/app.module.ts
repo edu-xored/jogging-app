@@ -14,22 +14,23 @@ import { UserService } from './services/user/user.service';
 import { RecordService } from './services/record/record.service';
 
 /** Components */
+import { routes } from './app.routes';
+import { LoginComponent } from './login/login.component';
 
-/** Routing */
-import { AppRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AppRoutes,
+    routes,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [UserService, RecordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,13 +3,15 @@
     "none": {
       "firstName": "firstName",
       "lastName": "lastName",
-      "records": {
-        "record_none": {
-          "timestamp": "1499472000",
-          "distance": "1000",
-          "time": "60"
+      "records": [
+        {
+          "record_none": {
+            "timestamp": "1499472000",
+            "distance": "1000",
+            "time": "60"
+          }
         }
-      }
+      ]
     }
   }
 }

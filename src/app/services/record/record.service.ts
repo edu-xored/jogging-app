@@ -10,19 +10,19 @@ import { Record } from '../../models/Record';
 export class RecordService {
 
   recordsCollection: AngularFirestoreCollection<Record>;
-  records: Observable<Record[]>;
+  records: Observable<Record>;
   recordDocument: AngularFirestoreDocument<Record>;
 
   constructor(public angularFirestore: AngularFirestore) {
 
   }
 
-  getRecords() { }
-  
+  getRecords(): Observable<Record> {
+    return this.records;
+  }
+
   addRecord(record: Record) { }
 
-  updateRecord(record: Record) { }
-
-  deleteRecord(record: Record) { }
+  deleteRecord(Record: Record) { }
 
 }

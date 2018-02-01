@@ -1,6 +1,6 @@
 {
-  "users": {
-    "none": {
+  "users": [
+    {
       "firstName": "firstName",
       "lastName": "lastName",
       "records": [
@@ -15,6 +15,10 @@
           "time": "61"
         }
       ]
+    },
+    {
+      "firstName": "firstName2",
+      "lastName": "lastName2"
     }
-  }
+  ]
 }

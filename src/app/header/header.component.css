@@ -1,0 +1,27 @@
+mat-toolbar {
+  border: 1px solid #cecece;
+}
+#name_app {
+  font-size: 22pt;
+  margin-left: 2%;
+}
+.text {
+  color: darkslategray;
+}
+#spacer {
+  flex: auto;
+}
+#block_log {
+  color: darkslategray;
+  margin-right: 4%;
+  display: flex;
+
+}
+#block_log span {
+  font-size: 20pt;
+  top: 4px;
+  margin-right: 4px;
+}
+mat-toolbar {
+ //background-color: #cecece;
+}

@@ -1,20 +1,16 @@
 {
-  "users": {
-    "none": {
-      "firstName": "firstName",
-      "lastName": "lastName",
-      "records": [
-        {
-          "timestamp": "1499472000",
-          "distance": "1000",
-          "time": "60"
-        },
-        {
-          "timestamp": "1499472001",
-          "distance": "1001",
-          "time": "61"
-        }
-      ]
+  "records": [
+    {
+      "timestamp": "1499472000",
+      "distance": "1000",
+      "time": "60",
+      "userId": "0"
+    },
+    {
+      "timestamp": "1499472001",
+      "distance": "1000",
+      "time": "61",
+      "userId": "1"
     }
-  }
+  ]
 }

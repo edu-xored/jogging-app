@@ -5,7 +5,6 @@
       "lastName": "lastName",
       "records": [
         {
-<<<<<<< HEAD
           "timestamp": "1499472000",
           "distance": "1000",
           "time": "60"
@@ -14,13 +13,6 @@
           "timestamp": "1499472001",
           "distance": "1001",
           "time": "61"
-=======
-          "record_none": {
-            "timestamp": "1499472000",
-            "distance": "1000",
-            "time": "60"
-          }
->>>>>>> origin/issue1_7
         }
       ]
     }

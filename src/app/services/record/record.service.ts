@@ -4,10 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { Record } from '../../models/Record';
 
 /**
- * Service that allows to get records list, add, edit, delete records.
+ * Service that allows to get records list, add, edit, delete records from concrete user.
  */
 @Injectable()
 export class RecordService {
+
   recordsCollection: AngularFirestoreCollection<Record>;
   records: Observable<Record[]>;
   recordDocument: AngularFirestoreDocument<Record>;
@@ -23,6 +24,5 @@ export class RecordService {
   updateRecord(record: Record) { }
 
   deleteRecord(record: Record) { }
-
 
 }

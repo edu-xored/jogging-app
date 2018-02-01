@@ -1,5 +1,3 @@
-import { User } from '../../models/User';
-
 /**
  * Service that provides user data.
  */
@@ -14,6 +12,10 @@ export class UserService {
 
   isUserAuthorized(): boolean {
     return true;
+  }
+
+  getUserId(): any {
+    return 0;
   }
 
 }

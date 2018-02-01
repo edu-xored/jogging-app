@@ -14,19 +14,38 @@ export class UserService {
     this.users = this.usersCollection.valueChanges();
   }
 
+  /**
+   * @deprecated
+   * @param user 
+   */
   addUser(user: User) {
     this.usersCollection.add(user);
   }
 
+  /**
+   * @deprecated
+   * @param user 
+   */
   updateUser(user: User) {
     this.userDocument = this.angularFirestore.doc(`users/${user.id}`);
     this.userDocument.update(user);
   }
 
+  /**
+   * @deprecated
+   * @param user 
+   */
   deleteUser(user: User) {
     this.userDocument = this.angularFirestore.doc(`users/${user.id}`);
     this.userDocument.delete();
   }
 
+  getCurrentUserName(): string {
+    return "";
+  }
+
+  isUserAuthorized(): boolean {
+    return true;
+  }
 
 }

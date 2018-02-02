@@ -1,25 +1,25 @@
 mat-toolbar {
-  border: 1px solid #cecece;
+  background-color: ghostwhite;
 }
-#name_app {
-  font-size: 22pt;
+.color {
+  color: darkslategray;
+}
+.name-app {
   margin-left: 2%;
 }
-.text {
-  color: darkslategray;
+.header-text-user {
+  font-size: 16pt;
 }
-#spacer {
+.main-text {
+  font-size: 22pt;
+}
+.spacer {
   flex: auto;
 }
-#block_log {
-  color: darkslategray;
+.margin-rigth {
   margin-right: 4%;
-  display: flex;
-
 }
-#block_log span {
-  font-size: 20pt;
-  top: 4px;
-  margin-right: 4px;
+button[mat-button]{
+  background-color: white;
 }
 

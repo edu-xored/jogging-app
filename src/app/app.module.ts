@@ -20,8 +20,6 @@ import { RecordService } from './services/record/record.service';
 import { routes } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,

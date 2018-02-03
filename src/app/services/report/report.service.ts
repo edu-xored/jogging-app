@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Report } from '../../models/Report';
 
 /**
- * Service that allows to get records list, add, edit, delete records from concrete user.
+ * Service that allows to get reports list, add, edit, delete reports for concrete user.
  */
 @Injectable()
 export class ReportService {

@@ -1,7 +1,7 @@
 <mat-toolbar class="color">
   <p class="name-app main-text">Jogging App</p>
   <span class="spacer"></span>
-  <button mat-button class="margin-rigth" *ngIf="isAuthorised; else elseBlock">
+  <button mat-button class="margin-rigth" *ngIf="isAuthorised; else elseBlock" (click)="signOut()">
     <span class="header-text-user">Sign out</span>
     <i class="fas fa-sign-out-alt fa-2x text"></i>
   </button>
@@ -12,3 +12,5 @@
       </button>
     </ng-template>
 </mat-toolbar>
+
+

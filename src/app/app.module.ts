@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 
 /** Firebase modules */
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 /** Services */
 import { UserService } from './services/user/user.service';
@@ -28,9 +28,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
-    AngularFireAuth,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     routes,
     BrowserAnimationsModule,
   ],

@@ -2,7 +2,7 @@
   <p class="name-app main-text">Jogging App</p>
   <span class="spacer"></span>
   <button mat-button class="margin-rigth">
-    <span class="header-text-user" *ngIf="isAuthorised; else elseBlock">Sign out</span>
+    <span class="header-text-user" *ngIf="isAuthorised; else elseBlock" (click)="signOut()">Sign out</span>
     <ng-template #elseBlock>Login</ng-template>
     <i class="fas fa-sign-out-alt fa-2x text"></i>
   </button>

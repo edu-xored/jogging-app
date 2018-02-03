@@ -3,6 +3,9 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs/Observable';
 
 import { UserService } from '../services/user/user.service';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 /***
  * Protect routes from unauthenticated users.
@@ -14,12 +17,14 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if (!this._userService.authenticated) {
-        console.log('Access denied: user not logged in.');
-        this.router.navigate(['/login']);
-        return false;
-      } else {
-        return true;
-      }
+    return this._userService.currentUser
+      .take(1)
+      .map(currentUser => !!currentUser)
+      .do(loggedIn => {
+        if (!loggedIn) {
+          console.log('Access denied: user not logged in.');
+          this.router.navigate(['/login']);
+        }
+      });
   }
 }

@@ -11,10 +11,12 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-  currentUser: firebase.User | null;
+  // currentUser: firebase.User | null;
+  currentUser: Observable<User | null>;
 
   constructor(private _angularFireAuth: AngularFireAuth, private router: Router) {
-    _angularFireAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
+    this.currentUser = this._angularFireAuth.authState;
+    // _angularFireAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
   }
 
   loginWithGoogle() {
@@ -31,6 +33,7 @@ export class UserService {
     return this._angularFireAuth.auth.signInWithPopup(provider)
       .then((success) => {
         console.log('User was logged in.');
+        this.router.navigate(['/reports']);
       })
       .catch((error) =>
         console.error());
@@ -45,14 +48,10 @@ export class UserService {
   }
 
   get currentUserName(): string {
-    return (this.currentUser) ? this.currentUser.displayName : '';
-  }
-
-  get authenticated(): boolean {
-    return (this.currentUser) ? true : false;
+    return this._angularFireAuth.auth.currentUser.displayName;
   }
 
   get currentUserId(): string {
-    return this.currentUser.uid;
+    return this._angularFireAuth.auth.currentUser.uid;
   }
 }

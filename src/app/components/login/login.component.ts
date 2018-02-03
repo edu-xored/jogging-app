@@ -19,12 +19,10 @@ export class LoginComponent implements OnInit {
 
   loginWithGoogle() {
     this.userService.loginWithGoogle();
-    this.router.navigate(['/reports']);
   }
 
   loginWithGithub() {
     this.userService.loginWithGithub();
-    this.router.navigate(['/reports']);
   }
 
 }

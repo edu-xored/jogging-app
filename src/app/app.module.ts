@@ -18,6 +18,9 @@ import { MatToolbarModule, MatButtonModule } from '@angular/material';
 import { UserService } from './services/user/user.service';
 import { ReportService } from './services/report/report.service';
 
+/** Guards */
+import { AuthGuard } from './core/auth.guard';
+
 /** Components */
 import { routes } from './core/app.routes';
 import { LoginComponent } from './components/login/login.component';
@@ -46,7 +49,7 @@ import { ReportsEditComponent } from './components/reports-edit/reports-edit.com
     MatButtonModule,
     MatToolbarModule,
   ],
-  providers: [UserService, ReportService],
+  providers: [UserService, ReportService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

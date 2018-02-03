@@ -30,4 +30,12 @@ export class ReportService {
     this.reportsCollection.add(report)
       .then(() => console.log('Report was added.'));
   }
+
+  updateReport(reportId: string, report: Report) {
+    this.getReport(reportId).update(report);
+  }
+
+  getReport(reportId: string) {
+    return this.angularFirestore.doc<Report>(`reports/${reportId}`);
+  }
 }

@@ -1,0 +1,10 @@
+<mat-toolbar class="color">
+  <p class = "name-app main-text">Jogging App</p>
+  <span class = "spacer"></span>
+  <button mat-button
+          class="margin-rigth"
+          *ngIf="isAuthorised">
+    <span class="header-text-user">SignOut</span>
+    <i class="fas fa-sign-out-alt fa-2x text"></i>
+  </button>
+</mat-toolbar>

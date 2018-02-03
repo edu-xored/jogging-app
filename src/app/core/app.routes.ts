@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { LoginComponent } from '../components/login/login.component';
 import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 import { ReportsComponent } from '../components/reports/reports.component';
-import { ReportsEditComponent } from '../components/reports-edit/reports-edit.component';
+import { ReportsAddComponent } from '../components/reports-add/reports-add.component';
 
 import { AuthGuard } from './auth.guard';
 
@@ -13,7 +13,7 @@ const router: Routes = [
     { path: 'reports',
     canActivate: [AuthGuard],
     children: [
-      { path: 'edit', component: ReportsEditComponent, canActivate: [AuthGuard] },
+      { path: 'add', component: ReportsAddComponent, canActivate: [AuthGuard] },
       { path: '', component: ReportsComponent, canActivate: [AuthGuard] }
     ] },
   { path: '',   redirectTo: '/reports', pathMatch: 'full' },

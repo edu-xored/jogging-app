@@ -23,6 +23,8 @@ import { routes } from './core/app.routes';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { ReportsEditComponent } from './components/reports-edit/reports-edit.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReportsComponent,
+    ReportsEditComponent
   ],
   imports: [
     BrowserModule,

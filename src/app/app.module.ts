@@ -11,25 +11,29 @@ import { AppComponent } from './app.component';
 /** Firebase modules */
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 /** Services */
 import { UserService } from './services/user/user.service';
 import { RecordService } from './services/record/record.service';
 
 /** Components */
-import { routes } from './app.routes';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
+import { routes } from './core/app.routes';
+import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     routes,
     BrowserAnimationsModule,
     MatButtonModule,

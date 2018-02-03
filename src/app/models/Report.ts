@@ -3,7 +3,7 @@ export class Report {
     readonly timestamp: Date;
     readonly distance: number;
     readonly time: number;
-    readonly userId: string;
+    userId: string;
 
     constructor(timestamp: Date, distance: number, time: number, userId: string) {
         this.timestamp = timestamp;

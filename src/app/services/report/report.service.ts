@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 
 import { Report } from '../../models/Report';
+import { UserService } from '../user/user.service';
 
 /**
  * Service that allows to get reports list, add, edit, delete reports for concrete user.
@@ -11,19 +12,22 @@ import { Report } from '../../models/Report';
 export class ReportService {
 
   reportsCollection: AngularFirestoreCollection<Report>;
-  reports: Observable<Report>;
+  reports: Observable<Report[]>;
   reportDocument: AngularFirestoreDocument<Report>;
 
-  constructor(public angularFirestore: AngularFirestore) {
-
+  constructor(public angularFirestore: AngularFirestore, private _userService: UserService) {
+    const userId: string = this._userService.currentUserId;
+    this.reportsCollection = angularFirestore.collection<Report>('reports', ref => ref.where('userId', '==', userId));
+    this.reports = this.reportsCollection.valueChanges();
   }
 
-  getReports(): Observable<Report> {
-    return null;
+  getReports(): Observable<Report[]> {
+    return this.reports;
   }
 
-  addReport(record: Report) { }
-
-  deleteReport(Record: Report) { }
-
+  addReport(report: Report) {
+    report.userId = this._userService.currentUserId;
+    this.reportsCollection.add(report)
+      .then(() => console.log('Report was added.'));
+  }
 }

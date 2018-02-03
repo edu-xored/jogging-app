@@ -16,6 +16,7 @@ export class ReportsComponent {
    * Set the sort after the view init since this component will
    * be able to query its view for the initialized sort.
    */
+  // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }

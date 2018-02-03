@@ -12,7 +12,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 /** Services */
 import { UserService } from './services/user/user.service';
-import { RecordService } from './services/record/record.service';
+import { ReportService } from './services/report/report.service';
 
 /** Components */
 import { routes } from './core/app.routes';
@@ -34,7 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     routes,
     BrowserAnimationsModule,
   ],
-  providers: [UserService, RecordService],
+  providers: [UserService, ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-export class Record {
+export class Report {
     id?: string;
     readonly timestamp: Date;
     readonly distance: number;

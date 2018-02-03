@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { routes } from '../../core/app.routes';
+import { Router } from '@angular/router';
+
 import { UserService } from '../../services/user/user.service';
 
 @Component({
@@ -11,17 +12,19 @@ import { UserService } from '../../services/user/user.service';
 
 export class LoginComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   loginWithGoogle() {
     this.userService.loginWithGoogle();
+    this.router.navigate(['records']);
   }
 
   loginWithGithub() {
-    this.userService.loginWithGithub();
+    this.userService.loginWithGithub();    
+    this.router.navigate(['records']);
   }
 
 }

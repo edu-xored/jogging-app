@@ -14,11 +14,3 @@
   border-radius: 3px;
   padding: 20px;
 }
-
-.form-container button {
-  display: block;
-}
-
-.form-container button:first-child {
-  margin-bottom: 10px;
-}

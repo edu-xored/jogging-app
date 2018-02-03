@@ -11,10 +11,12 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-  currentUser: firebase.User | null;
+  currentUser: Observable<User | null>;
+  authenticated: Observable<boolean>;
 
   constructor(private _angularFireAuth: AngularFireAuth, private router: Router) {
-    _angularFireAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
+    this.currentUser = this._angularFireAuth.authState;
+    this.authenticated = this._angularFireAuth.authState.map(user => !!user);
   }
 
   loginWithGoogle() {
@@ -31,28 +33,30 @@ export class UserService {
     return this._angularFireAuth.auth.signInWithPopup(provider)
       .then((success) => {
         console.log('User was logged in.');
+        this.router.navigate(['/reports']); // это по-хорошему в абстракции повыше должно находиться
       })
-      .catch((error) =>
-        console.error());
+      .catch(error => console.log('Error at loginService: ', error));
   }
 
   logout() {
     this._angularFireAuth.auth.signOut()
       .then((success) => {
         console.log('User was logged out.');
-        this.router.navigate(['login']);
+        this.router.navigate(['/login']);
       });
   }
 
   get currentUserName(): string {
-    return (this.currentUser !== null) ? this.currentUser.displayName : '';
-  }
-
-  get authenticated(): boolean {
-    return this.currentUser !== null;
+    return this._angularFireAuth.auth.currentUser.displayName;
   }
 
   get currentUserId(): string {
-    return this.currentUser.uid;
+    return this._angularFireAuth.auth.currentUser.uid;
   }
+
+  // get authenticated(): Observable<boolean> {
+  //   return this._angularFireAuth.authState
+  //   .take(1)
+  //   .map(user => !!user);
+  // }
 }

@@ -7,13 +7,8 @@ import { Report } from '../../models/Report';
   templateUrl: './reports-add.component.html',
   styleUrls: ['./reports-add.component.css']
 })
-export class ReportsAddComponent implements OnInit {
 
-  readonly report: Report = {
-    timestamp: '',
-    distance: 0,
-    time: ''
-  };
+export class ReportsAddComponent implements OnInit {
 
   startDate = new Date();
   constructor(public reportService: ReportService) { }
@@ -21,9 +16,12 @@ export class ReportsAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  addReport() {
-    this.reportService.addReport(this.report);
-    // const report = new Report({time =})
-    // this.reportService.addReport(new Report({distance}))
+  addReport(distance: number, time: string, timestamp: string) {
+    const report: Report = {
+      timestamp: timestamp,
+      distance: distance,
+      time: time
+    };
+    this.reportService.addReport(report);
   }
 }

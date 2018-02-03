@@ -1,28 +1,36 @@
 mat-toolbar {
   background-color: ghostwhite;
 }
+
 .color {
   color: darkslategray;
 }
+
 .name-app {
   margin-left: 2%;
 }
+
 .header-text-user {
   font-size: 16pt;
 }
+
 .main-text {
   font-size: 22pt;
 }
+
 .spacer {
   flex: auto;
 }
+
 .margin-rigth {
   margin-right: 4%;
 }
+
 button[mat-button]{
   background-color: white;
 }
 
 .username {
   padding-right: 1.5rem;
+  vertical-align: middle;
 }

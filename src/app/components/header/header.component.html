@@ -1,9 +1,11 @@
 <mat-toolbar class="color">
   <p class="name-app main-text">Jogging App</p>
   <span class="spacer"></span>
-  <p class="username">{{ userService.currentUserName }}</p>
-  <button mat-button class="margin-rigth" *ngIf="userService.authenticated | async" (click)="signOut()">
-    <span class="header-text-user">Sign out</span>
-    <i class="fas fa-sign-out-alt fa-2x text"></i>
-  </button>
+  <div  *ngIf="userService.authenticated | async">
+    <span class="username">{{ userService.currentUserName }}</span>
+    <button mat-button class="margin-rigth" (click)="signOut()">
+      <span class="header-text-user">Sign out</span>
+      <i class="fas fa-sign-out-alt fa-2x text"></i>
+    </button>
+  </div>
 </mat-toolbar>

@@ -22,3 +22,8 @@
 .form-container button:first-child {
   margin-bottom: 10px;
 }
+
+.form-container h1 {
+  font: 400 24px/32px Roboto,Helvetica Neue,sans-serif;
+  padding-bottom: 5px;
+}

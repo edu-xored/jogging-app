@@ -1,0 +1,23 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-top: 1rem;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+  color: black;
+}
+
+.add-new-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

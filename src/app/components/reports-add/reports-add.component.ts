@@ -9,7 +9,8 @@ import { Report } from '../../models/Report';
 })
 export class ReportsAddComponent implements OnInit {
 
-  reportDetails = {
+  readonly report: Report = {
+    timestamp: '',
     distance: 0,
     time: ''
   };
@@ -21,7 +22,8 @@ export class ReportsAddComponent implements OnInit {
   }
 
   addReport() {
-    // this.reportService.addReport(new Report())
+    this.reportService.addReport(this.report);
+    // const report = new Report({time =})
+    // this.reportService.addReport(new Report({distance}))
   }
-
 }

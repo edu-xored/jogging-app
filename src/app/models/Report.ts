@@ -3,5 +3,5 @@ export interface Report {
   readonly timestamp: string;
   readonly distance: number;
   readonly time: string;
-  userId: string;
+  userId?: string;
 }

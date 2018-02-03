@@ -1,14 +1,7 @@
-export class Report {
+export interface Report {
     id?: string;
-    readonly timestamp: Date;
+    readonly timestamp: string;
     readonly distance: number;
-    readonly time: number;
+    readonly time: string;
     userId: string;
-
-    constructor(timestamp: Date, distance: number, time: number, userId: string) {
-        this.timestamp = timestamp;
-        this.distance = distance;
-        this.time = time;
-        this.userId = userId;
-    }
 }

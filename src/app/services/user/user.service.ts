@@ -40,16 +40,16 @@ export class UserService {
     this._angularFireAuth.auth.signOut()
       .then((success) => {
         console.log('User was logged out.');
-        this.router.navigate(['login']);
+        this.router.navigate(['/login']);
       });
   }
 
   get currentUserName(): string {
-    return (this.currentUser !== null) ? this.currentUser.displayName : '';
+    return (this.currentUser) ? this.currentUser.displayName : '';
   }
 
   get authenticated(): boolean {
-    return this.currentUser !== null;
+    return (this.currentUser) ? true : false;
   }
 
   get currentUserId(): string {

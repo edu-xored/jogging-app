@@ -12,10 +12,11 @@ import { Observable } from 'rxjs/Observable';
 export class UserService {
 
   currentUser: Observable<User | null>;
+  authenticated: Observable<boolean>;
 
   constructor(private _angularFireAuth: AngularFireAuth, private router: Router) {
     this.currentUser = this._angularFireAuth.authState;
-    // _angularFireAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
+    this.authenticated = this._angularFireAuth.authState.map(user => !!user);
   }
 
   loginWithGoogle() {
@@ -32,10 +33,9 @@ export class UserService {
     return this._angularFireAuth.auth.signInWithPopup(provider)
       .then((success) => {
         console.log('User was logged in.');
-        this.router.navigate(['/reports']);
+        this.router.navigate(['/reports']); // это по-хорошему в абстракции повыше должно находиться
       })
-      .catch((error) =>
-        console.error());
+      .catch(error => console.log('Error at loginService: ', error));
   }
 
   logout() {
@@ -54,9 +54,9 @@ export class UserService {
     return this._angularFireAuth.auth.currentUser.uid;
   }
 
-  get authenticated(): Observable<boolean> {
-    return this._angularFireAuth.authState
-    .take(1)
-    .map(user => !!user);
-  }
+  // get authenticated(): Observable<boolean> {
+  //   return this._angularFireAuth.authState
+  //   .take(1)
+  //   .map(user => !!user);
+  // }
 }

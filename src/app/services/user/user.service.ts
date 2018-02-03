@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-  // currentUser: firebase.User | null;
   currentUser: Observable<User | null>;
 
   constructor(private _angularFireAuth: AngularFireAuth, private router: Router) {
@@ -53,5 +52,11 @@ export class UserService {
 
   get currentUserId(): string {
     return this._angularFireAuth.auth.currentUser.uid;
+  }
+
+  get authenticated(): Observable<boolean> {
+    return this._angularFireAuth.authState
+    .take(1)
+    .map(user => !!user);
   }
 }

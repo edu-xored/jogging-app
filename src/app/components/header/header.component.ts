@@ -14,7 +14,8 @@ export class HeaderComponent {
   isAuthorised: Observable<boolean>;
 
   constructor(private userService: UserService) {
-    this.isAuthorised = this.userService.currentUser.map(currentUser => !!currentUser);
+    this.isAuthorised = this.userService.authenticated;
+    // this.isAuthorised = this.userService.currentUser.map(currentUser => !!currentUser);
   }
 
   signOut() {

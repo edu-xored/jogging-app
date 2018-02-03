@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user/user.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,7 @@ import { UserService } from '../services/user/user.service';
 })
 export class HeaderComponent {
   constructor(private userService: UserService) { }
-  isAuthorised = this.userService.isUserAuthorized();
+  isAuthorised: boolean = this.userService.authenticated;
 }
 
 

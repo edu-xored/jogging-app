@@ -23,3 +23,6 @@ button[mat-button]{
   background-color: white;
 }
 
+.username {
+  padding-right: 1.5rem;
+}

@@ -11,20 +11,23 @@ import { Router } from '@angular/router';
 })
 
 export class ReportsAddComponent implements OnInit {
-
+  time: string;
+  timestamp: string;
+  distance: number;
   startDate = new Date();
   constructor(public reportService: ReportService, private _location: Location, private router: Router) { }
 
   ngOnInit() {
   }
 
-  addReport(distance: number, time: string, timestamp: string) {
+  addReport(distance: number, time: string, timestamp: Date) {
     const report: Report = {
-      timestamp: timestamp,
+      timestamp: timestamp.toDateString(),
       distance: distance,
       time: time
     };
     this.reportService.addReport(report);
+    this.router.navigate(['/reports']);
   }
 
   goBack() {

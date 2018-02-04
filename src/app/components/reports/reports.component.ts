@@ -25,6 +25,7 @@ export class ReportsComponent implements OnInit {
     this.reportsObservable.subscribe(data => {
       console.log(data);
       this.reports = data;
+      this.dataSource = new MatTableDataSource(this.reports)
     });
   }
 
@@ -35,9 +36,15 @@ export class ReportsComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.reportsObservable.subscribe(data => {
+      console.log(data);
+      this.reports = data;
+      this.dataSource = new MatTableDataSource(this.reports)
+    });
   }
 
   deleteReport(id: string) {
     this.reportService.deleteReport(id);
+    this.dataSource = new MatTableDataSource(this.reports);
   }
 }

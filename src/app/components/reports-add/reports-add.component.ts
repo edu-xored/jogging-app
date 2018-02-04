@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../services/report/report.service';
 import { Report } from '../../models/Report';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports-add',
@@ -12,7 +13,7 @@ import {Location} from '@angular/common';
 export class ReportsAddComponent implements OnInit {
 
   startDate = new Date();
-  constructor(public reportService: ReportService, private _location: Location) { }
+  constructor(public reportService: ReportService, private _location: Location, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,6 @@ export class ReportsAddComponent implements OnInit {
   }
 
   goBack() {
-    this._location.back();
+    this.router.navigate(['/reports']);
   }
 }

@@ -10,7 +10,14 @@ import { Report } from '../../models/Report';
 })
 export class ReportsComponent {
   displayedColumns = ['Date', 'Distance', 'Time', 'Delete'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  readonly ELEMENT_DATA: Report[] = [
+    { id: '0', timestamp: '11.03.2018', distance: 5000, time: '00:12:30', userId: '0' },
+    { id: '1', timestamp: '11.04.2018', distance: 1000, time: '00:13:30', userId: '0' },
+    { id: '2', timestamp: '11.05.2018', distance: 2500, time: '00:14:31', userId: '0' },
+    { id: '3', timestamp: '11.06.2018', distance: 3000, time: '00:15:30', userId: '0' },
+    { id: '4', timestamp: '11.08.2018', distance: 1200, time: '00:20:30', userId: '0' },
+  ];
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   constructor(public reportService: ReportService) { }
 
@@ -24,15 +31,8 @@ export class ReportsComponent {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
-  
-deleteReport(id: string) {
+
+  deleteReport(id: string) {
     this.reportService.deleteReport(id);
   }
-
-const ELEMENT_DATA: Report[] = [
-  {id: '0', timestamp: '11.03.2018', distance: 5000, time: '00:12:30', userId: '0'},
-  {id: '1', timestamp: '11.04.2018', distance: 1000, time: '00:13:30', userId: '0'},
-  {id: '2', timestamp: '11.05.2018', distance: 2500, time: '00:14:31', userId: '0'},
-  {id: '3', timestamp: '11.06.2018', distance: 3000, time: '00:15:30', userId: '0'},
-  {id: '4', timestamp: '11.08.2018', distance: 1200, time: '00:20:30', userId: '0'},
-];
+}

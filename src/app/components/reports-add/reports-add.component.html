@@ -1,16 +1,19 @@
 <div class="form-wrapper">
   <form class="form-container">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Distance (Metres)" name="distance" [(ngModel)]="distance" >
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Time (seconds)" name="time" [(ngModel)]="time">
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="timestamp" [(ngModel)]="timestamp" color="primary">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-      </mat-form-field>
-      <button mat-raised-button (click)="addReport(distance, time, timestamp)">Add</button>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Distance (Metres)" name="distance" [(ngModel)]="distance">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Time (seconds)" name="time" [(ngModel)]="time">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="timestamp" [(ngModel)]="timestamp" color="primary">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button (click)="addReport(distance, time, timestamp)">Add</button>
+<button mat-icon-button (click)="goBack()">
+    <mat-icon aria-label="undo">undo</mat-icon>
+  </button>
   </form>
 </div>

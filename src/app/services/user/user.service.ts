@@ -53,10 +53,4 @@ export class UserService {
   get currentUserId(): string {
     return this._angularFireAuth.auth.currentUser.uid;
   }
-
-  // get authenticated(): Observable<boolean> {
-  //   return this._angularFireAuth.authState
-  //   .take(1)
-  //   .map(user => !!user);
-  // }
 }

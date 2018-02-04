@@ -24,11 +24,10 @@ export class ReportsComponent {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
-
-  deleteReport(id: string) {
+  
+deleteReport(id: string) {
     this.reportService.deleteReport(id);
   }
-}
 
 const ELEMENT_DATA: Report[] = [
   {id: '0', timestamp: '11.03.2018', distance: 5000, time: '00:12:30', userId: '0'},

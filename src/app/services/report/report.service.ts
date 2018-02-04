@@ -28,7 +28,8 @@ export class ReportService {
   addReport(report: Report) {
     report.userId = this._userService.currentUserId;
     this.reportsCollection.add(report)
-      .then(() => console.log('Report was added.'));
+      .then(() => console.log('Report was added.'))
+      .catch(err => console.error('Error: ', err));
   }
 
   updateReport(reportId: string, report: Report) {

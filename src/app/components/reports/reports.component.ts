@@ -23,7 +23,6 @@ export class ReportsComponent implements OnInit {
   ngOnInit() {
     this.reportsObservable = this.reportService.getReports();
     this.reportsObservable.subscribe(data => {
-      console.log(data);
       this.reports = data;
       this.dataSource = new MatTableDataSource(this.reports)
     });
@@ -37,7 +36,6 @@ export class ReportsComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.reportsObservable.subscribe(data => {
-      console.log(data);
       this.reports = data;
       this.dataSource = new MatTableDataSource(this.reports)
     });

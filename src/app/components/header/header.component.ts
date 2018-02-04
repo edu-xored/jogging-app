@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class HeaderComponent {
 
-  constructor(private userService: UserService) { }
+  constructor(public userService: UserService) { }
 
   signOut() {
     this.userService.logout();

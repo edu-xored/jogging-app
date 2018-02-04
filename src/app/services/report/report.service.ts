@@ -35,6 +35,10 @@ export class ReportService {
     this.getReport(reportId).update(report);
   }
 
+  deleteReport(reportId: string) {
+    this.getReport(reportId).delete();
+  }
+
   getReport(reportId: string) {
     return this.angularFirestore.doc<Report>(`reports/${reportId}`);
   }

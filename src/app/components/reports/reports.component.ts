@@ -12,6 +12,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ReportsComponent implements OnInit {
   reports: Report[];
+  reportsObservable: Observable<Report[]>;
+
   displayedColumns = ['Date', 'Distance', 'Time', 'Delete'];
   dataSource = new MatTableDataSource(this.reports);
 
@@ -19,7 +21,8 @@ export class ReportsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
-    this.reportService.getReports().subscribe(data => {
+    this.reportsObservable = this.reportService.getReports();
+    this.reportsObservable.subscribe(data => {
       console.log(data);
       this.reports = data;
     });
@@ -32,10 +35,6 @@ export class ReportsComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    this.reportService.getReports().subscribe(data => {
-      console.log(data);
-      this.reports = data;
-    });
   }
 
   deleteReport(id: string) {

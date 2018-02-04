@@ -32,6 +32,10 @@ export class ReportsComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.reportService.getReports().subscribe(data => {
+      console.log(data);
+      this.reports = data;
+    });
   }
 
   deleteReport(id: string) {
